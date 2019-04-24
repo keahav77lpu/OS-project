@@ -1,0 +1,29 @@
+temp=PROcess[i];
+        PROcess[i]=PROcess[position];
+        PROcess[position]=temp;
+ 
+        temp=burst_time[i];
+        burst_time[i]=burst_time[position];
+        burst_time[position]=temp;
+ 
+        temp=p[i];
+        p[i]=p[position];
+        p[position]=temp;
+    }
+ 
+    waiting_time[0]=0;            //waiting time for first Process is zero
+ 
+    //calculate waiting time
+    for(i=1;i<n;i++)
+    {
+        waiting_time[i]=0;
+        for(j=0;j<i;j++)
+            waiting_time[i]+=burst_time[j];
+ 
+        total1+=waiting_time[i];
+    }
+ 
+    avg_waiting_time=total1/n;      //average waiting time
+    total1=0;
+ 
+    cout<<"\nPROcessocess\t    Burst Time    \tWaiting Time\tTurnaround Time";
