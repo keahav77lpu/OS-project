@@ -1,0 +1,31 @@
+   //calculate waiting time
+    for(i=1;i<n;i++)
+    {
+        waiting_time[i]=0;
+        for(j=0;j<i;j++)
+            waiting_time[i]+=burst_time[j];
+ 
+        total1+=waiting_time[i];
+    }
+ 
+    avg_waiting_time=total1/n;      //average waiting time
+    total1=0;
+ 
+    cout<<"\nPROcessocess\t    Burst Time    \tWaiting Time\tTurnaround Time";
+    for(i=0;i<n;i++)
+    {
+        turn_arraound_time[i]=burst_time[i]+waiting_time[i];     //calculate turnaround time
+        total1+=turn_arraound_time[i];
+        cout<<"\nP["<<p[i]<<"]\t\t  "<<burst_time[i]<<"\t\t    "<<waiting_time[i]<<"\t\t\t"<<turn_arraound_time[i];
+    }
+ 
+    avg_turn_arraound_time=total1/n;     //average turnaround time
+    cout<<"\n\nAverage Waiting Time="<<avg_waiting_time;
+    cout<<"\nAverage Turnaround Time="<<avg_turn_arraound_time;
+ 
+    
+}
+    else
+    cout<<"\n\nSorry you dont know the password\n"<<"\n\n\nYou cant access\n\n\n\n";
+    return 0;
+}
